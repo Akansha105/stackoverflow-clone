@@ -27,11 +27,20 @@
 
 .stats {
   display: flex;
-  gap: 15px;
-  font-size: 12px;
+  gap: 18px;
   color: #777;
+  margin-bottom: 10px;
 }
 .bottom{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.time{
+    color: #777;
+}
+.name{
+    color: blue;
+    font-weight: 400;
 }

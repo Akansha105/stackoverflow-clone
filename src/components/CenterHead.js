@@ -10,12 +10,12 @@ const pages = ['Products', 'Pricing', 'Blog']
       </div>
       <div className="navbar">
         <div className="part1">
-          <h4 className="highlight">Intresting</h4>
-          <h4>Bountied</h4>
-          <h4>Hot</h4>
-          <h4>Week</h4>
-          <h4>Month
-          </h4>
+          <button className="highlight">Intresting</button>
+          <button>Bountied</button>
+          <button>Hot</button>
+          <button>Week</button>
+          <button>Month
+          </button>
         </div>
         <div className="part2">
             Ask Question

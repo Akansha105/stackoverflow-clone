@@ -6,7 +6,7 @@ const Center = () => {
   return (
     <>
       <div className="content">
-        <CenterHead />
+        {/* <CenterHead /> */}
         <Content />
       </div>
     </>
