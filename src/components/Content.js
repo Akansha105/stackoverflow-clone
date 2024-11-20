@@ -5,9 +5,11 @@ import QuestionItem from './QuestionItem'
 const Content = () => {
   const [questions, setQuestions] = useState([])
   const [filter,setFilter] = useState("activiy");
+  
 
   
     const fetchQuestions = async (filter) => {
+        
     try{
         let params = {
             order: 'desc',
@@ -16,11 +18,11 @@ const Content = () => {
         };
         switch(filter){
             case "hot":
-                params.sort = "views";
+                params.sort = "activity";
                 break;
             case "week":
                 params.sort = "creation";
-                params.formdate = Math.floor(Date.now()/1000) - 7*24*60*60;
+                params.frommdate = Math.floor(Date.now()/1000) - 7*24*60*60;
                 break;
             case "bountied":
                 params.sort = "votes";
@@ -28,7 +30,7 @@ const Content = () => {
                 break;
             case "month":
                 params.sort = "creation";
-                params.formdate = Math.floor(Date.now()/1000)-30*24*60*60;
+                params.fromdate = Math.floor(Date.now()/1000)-30*24*60*60;
                 break;
             default:
                     params.sort = "activity";
@@ -39,7 +41,7 @@ const Content = () => {
       setQuestions(response.data.items);
     }catch(err)
     {
-        console.log(err)
+        console.log(err.message)
     }
     }
 useEffect(() => {

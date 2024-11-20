@@ -8,7 +8,9 @@ import "./center.css"
 const QuestionItem = ({ question }) => {
   return (
     <div className="question-item">
-      <h3 className="title">{question.title}</h3>
+      <h3 className="title">
+        <a href={question.link}>{question.title}</a>
+      </h3>
       <div className="tags">
         {question.tags.map((tag) => (
           <span key={tag} className="tag">
@@ -19,7 +21,9 @@ const QuestionItem = ({ question }) => {
       <div className="bottom">
         <div className="stats">
           <span>
-            <ChangeHistoryIcon style={{ marginTop: 15, paddingRight: 5,color:"orange" }} />
+            <ChangeHistoryIcon
+              style={{ marginTop: 15, paddingRight: 5, color: 'orange' }}
+            />
             {question.score}
           </span>
           <span>
@@ -36,7 +40,8 @@ const QuestionItem = ({ question }) => {
           </span>
         </div>
         <div className="time">
-          added 55sec ago: <span className="name">{question.owner.display_name}</span>
+          added 55sec ago:{' '}
+          <span className="name">{question.owner.display_name}</span>
         </div>
       </div>
     </div>

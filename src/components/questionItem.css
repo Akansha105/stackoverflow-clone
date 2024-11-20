@@ -1,6 +1,11 @@
  .title{ 
     color: rgb(113, 111, 111);
 }
+a{
+    text-decoration: none;
+    cursor: pointer;
+    color: rgb(113, 111, 111);
+}
 
 .question-item {
   border: 1px solid #e4e3e3;
