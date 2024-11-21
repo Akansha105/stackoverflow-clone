@@ -8,8 +8,9 @@ const Content = () => {
   const [filter,setFilter] = useState("activiy");
   const {text} = useContext(LoginContext);
 
-    const fetchQuestions = async (filter) => {    
-    try{
+useEffect(() => {
+  const fetchQuestions = async (filter) => {
+    try {
       let params = {
         order: 'desc',
         site: 'stackoverflow',
@@ -43,14 +44,13 @@ const Content = () => {
         question.title.toLowerCase().includes(text.toLowerCase())
       )
       setQuestions(filteredQues)
-    }catch(err)
-    {
-        console.log(err.message)
+    } catch (err) {
+      console.log(err.message)
     }
-    }
-useEffect(() => {
+  }
+
   fetchQuestions(filter)
-}, [filter,text])
+}, [filter, text])
 
   return (
     <>
