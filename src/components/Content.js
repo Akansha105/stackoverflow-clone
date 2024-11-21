@@ -1,44 +1,55 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useContext } from 'react'
 import axios from 'axios'
 import QuestionItem from './QuestionItem'
+import { LoginContext } from './context/ContextProvider'
 
 const Content = () => {
   const [questions, setQuestions] = useState([])
   const [filter,setFilter] = useState("activiy");
-  
-
-  
+  const {text} = useContext(LoginContext)
     const fetchQuestions = async (filter) => {
         
     try{
-        let params = {
-            order: 'desc',
-            site: 'stackoverflow',
-            pagesize: 5,
-        };
-        switch(filter){
-            case "hot":
-                params.sort = "activity";
-                break;
-            case "week":
-                params.sort = "creation";
-                params.frommdate = Math.floor(Date.now()/1000) - 7*24*60*60;
-                break;
-            case "bountied":
-                params.sort = "votes";
-                params.min = 1;
-                break;
-            case "month":
-                params.sort = "creation";
-                params.fromdate = Math.floor(Date.now()/1000)-30*24*60*60;
-                break;
-            default:
-                    params.sort = "activity";
-        }
+      let params = {
+        order: 'desc',
+        site: 'stackoverflow',
+        pagesize: 5,
+      }
+      switch (filter) {
+        case 'hot':
+          params.sort = 'activity'
+          break
+        case 'week':
+          params.sort = 'creation'
+          params.fromdate = Math.floor(Date.now() / 1000) - 7 * 24 * 60 * 60
+
+          // console.log('Hello ==Filter:==', filter)
+          // console.log(
+          //   '==From Date:==',
+          //   new Date(params.fromdate * 1000).toString()
+          // )
+
+          break
+        case 'bountied':
+          params.sort = 'votes'
+          params.min = 1
+          break
+        case 'month':
+          params.sort = 'creation'
+          params.fromdate = Math.floor(Date.now() / 1000) - 30 * 24 * 60 * 60
+          break
+        default:
+          params.sort = 'activity'
+      }
       const response = await axios.get(
-        'https://api.stackexchange.com/2.3/questions',{params}
+        'https://api.stackexchange.com/2.3/questions',
+        { params }
       )
-      setQuestions(response.data.items);
+
+      const filteredQues = response.data.items.filter((question) =>
+        question.title.toLowerCase().includes(text.toLowerCase())
+      )
+      setQuestions(filteredQues)
     }catch(err)
     {
         console.log(err.message)
@@ -46,7 +57,7 @@ const Content = () => {
     }
 useEffect(() => {
   fetchQuestions(filter)
-}, [filter])
+}, [filter,text])
 
   return (
     <>
@@ -57,7 +68,7 @@ useEffect(() => {
         <div className="navbar">
           <div className="part1">
             <button
-            id='highlight'
+              id="highlight"
               onClick={() => setFilter('hot')}
               className={filter === 'hot' ? 'active' : ''}
             >
@@ -88,7 +99,10 @@ useEffect(() => {
 
       <div className="question-list">
         {questions.map((question) => (
-          <QuestionItem key={question.question_id} question={question} />
+          // <QuestionItem key={question.question_id} question={question} />
+          <div className="question-item" key={question.question_id}>
+            <QuestionItem question={question} />
+          </div>
         ))}
       </div>
     </>
