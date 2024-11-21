@@ -4,7 +4,6 @@ import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline'
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents'
 import CommentIcon from '@mui/icons-material/Comment'
 import Avatar from '@mui/material/Avatar'
-import SearchIcon from '@mui/icons-material/Search'
 import Search from "./Search"
 const Header = () => {
   return (

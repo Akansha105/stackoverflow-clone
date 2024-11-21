@@ -1,0 +1,12 @@
+.img-container{
+    padding: 14px;
+}
+img{
+    width: 250px;
+}
+
+@media (max-width:1000px){
+    .sidebar{
+        visibility: hidden;
+    }
+}

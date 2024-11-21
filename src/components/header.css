@@ -1,34 +1,10 @@
-/* input{
-    width:600px;
-    height: 40px;
-    border: 2px solid #6C4E31;
-    outline: none;
-    font-size: 14px;
-    padding-left: 10px;
-    border-radius: 20px;
-    margin-left: 380px;
-}
-.header{
-    display: flex;
-    margin-top: 80px;
-}
-
-
-.header-icons{
-    display: flex;
-    justify-content: space-between;
-    /* flex-direction: row; */
-/* }  */
-
-
 input {
-    width: 50%; /* Adjust width to be a percentage */
-    max-width: 600px; /* Ensure it doesn't exceed a maximum width */
+    width: 50%;
+    max-width: 600px;
     height: 40px;
     font-size: 14px;
     padding-left: 10px;
     border-radius: 20px;
-    margin-left: 350px; /* Reduced for smaller screens */
 }
 
 .header {
@@ -55,28 +31,28 @@ input {
 
 @media screen and (max-width: 768px) {
     input {
-        width: 70%; /* Wider search bar on smaller screens */
-        margin-left: 0; /* Remove excess margin */
-        font-size: 12px; /* Slightly smaller font size */
+        width: 70%;
+        margin-left: 0;
+        font-size: 12px;
     }
 
     .header {
-        flex-direction: column; /* Stack elements vertically */
-        align-items: center; /* Center align content */
+        flex-direction: column;
+        align-items: center;
     }
 
     .header-icons {
-        margin-top: 10px; /* Add spacing between search bar and icons */
+        margin-top: 10px;
     }
 }
 
 @media screen and (max-width: 480px) {
     input {
-        width: 90%; /* Almost full width for mobile */
+        width: 90%;
     }
 
     .header-icons {
-        justify-content: center; /* Center align icons on smaller screens */
-        gap: 5px; /* Reduce gap between icons */
+        justify-content: center;
+        gap: 5px;
     }
 }

@@ -26,7 +26,7 @@ const SearchBar = () => {
       }}
       sx={{
         '& .MuiOutlinedInput-root': {
-          borderRadius: '20px', // Set border radius
+          borderRadius: '20px',
         },
       }}
     />

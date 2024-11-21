@@ -5,7 +5,7 @@ import PublicIcon from '@mui/icons-material/Public';
 import StarsIcon from '@mui/icons-material/Stars';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import GroupIcon from '@mui/icons-material/Group'
-
+import "./sidebar.css"
 const Sidebar = () => {
   const menuItems = [
     { icon: <HomeIcon sx={{ color: 'orange' }} />, category: 'HOME' },
@@ -39,12 +39,11 @@ const Sidebar = () => {
   ]
 
   return (
-    <Drawer variant="permanent" anchor="left">
-      <div style={{ padding: 14 }}>
+    <Drawer variant="permanent" anchor="left" className="sidebar">
+      <div className="img-container">
         <img
           src="https://th.bing.com/th/id/OIP.zeiB6xZQ_UNB7ssgLA7yCQHaD3?rs=1&pid=ImgDetMain"
           alt="Stack Overflow Logo"
-          style={{ width: '250px'}}
         />
       </div>
       <Divider />
@@ -71,7 +70,7 @@ const Sidebar = () => {
             <ListItem button>
               <ListItemText
                 primary={item.text}
-                style={{ marginLeft: '50px' }}
+                sx={{ marginLeft: '50px' }}
               />
             </ListItem>
           </>

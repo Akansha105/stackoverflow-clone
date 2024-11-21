@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField'
 import "./blog.css"
 const Blog = () => {
   return (
-    <div className="test">
+    <div className="container">
       <div className="right-sidebar">
         <div className="blogs">
           <h3>The OverFlow Blog</h3>

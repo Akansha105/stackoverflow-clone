@@ -6,9 +6,9 @@ import { LoginContext } from './context/ContextProvider'
 const Content = () => {
   const [questions, setQuestions] = useState([])
   const [filter,setFilter] = useState("activiy");
-  const {text} = useContext(LoginContext)
-    const fetchQuestions = async (filter) => {
-        
+  const {text} = useContext(LoginContext);
+
+    const fetchQuestions = async (filter) => {    
     try{
       let params = {
         order: 'desc',
@@ -22,13 +22,6 @@ const Content = () => {
         case 'week':
           params.sort = 'creation'
           params.fromdate = Math.floor(Date.now() / 1000) - 7 * 24 * 60 * 60
-
-          // console.log('Hello ==Filter:==', filter)
-          // console.log(
-          //   '==From Date:==',
-          //   new Date(params.fromdate * 1000).toString()
-          // )
-
           break
         case 'bountied':
           params.sort = 'votes'
@@ -76,19 +69,16 @@ useEffect(() => {
             </button>
             <button
               onClick={() => setFilter('week')}
-              className={filter === 'week' ? 'active' : ''}
             >
               Week
             </button>
             <button
               onClick={() => setFilter('bountied')}
-              className={filter === 'bountied' ? 'active' : ''}
             >
               Bountied
             </button>
             <button
               onClick={() => setFilter('month')}
-              className={filter === 'month' ? 'active' : ''}
             >
               Month
             </button>
@@ -99,10 +89,7 @@ useEffect(() => {
 
       <div className="question-list">
         {questions.map((question) => (
-          // <QuestionItem key={question.question_id} question={question} />
-          <div className="question-item" key={question.question_id}>
-            <QuestionItem question={question} />
-          </div>
+          <QuestionItem key={question.question_id} question={question} />
         ))}
       </div>
     </>
